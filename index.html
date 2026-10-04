@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shivalay Bhakta Niwas | Tuljapur</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f7f3ed;
+    color: #333;
+}
+
+/* HEADER */
+
+header {
+    background: #7b1e12;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 30px;
+}
+
+header p {
+    margin-top: 6px;
+}
+
+/* HERO */
+
+.hero {
+    padding: 45px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #fff3d6, #f5d7a0);
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #7b1e12;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* CONTAINER */
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.12);
+    margin-bottom: 25px;
+}
+
+.card h2 {
+    color: #7b1e12;
+    margin-bottom: 20px;
+}
+
+/* FORM */
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.time-row {
+    display: flex;
+    gap: 8px;
+}
+
+.time-row select {
+    flex: 1;
+}
+
+/* BUTTON */
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #7b1e12;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #a52b1a;
+}
+
+/* RECEIPT */
+
+.receipt {
+    display: none;
+    border: 2px solid #7b1e12;
+    padding: 25px;
+    margin-top: 25px;
+    background: white;
+}
+
+.receipt h2 {
+    text-align: center;
+    color: #7b1e12;
+}
+
+.receipt p {
+    margin: 10px 0;
+}
+
+.total {
+    font-size: 22px;
+    font-weight: bold;
+    border-top: 1px solid #aaa;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #7b1e12;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .time-row {
+        flex-wrap: wrap;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+}
+
+/* PRINT */
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    .receipt,
+    .receipt * {
+        visibility: visible;
+    }
+
+    .receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .receipt button {
+        display: none;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>🛕 Shivalay Bhakta Niwas</h1>
+
+    <p>Ghatshil Road, Tuljapur</p>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h2>Welcome to Shivalay Bhakta Niwas</h2>
+
+    <p>
+        Comfortable and peaceful stay near Aai Tulja Bhavani Temple
+    </p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<!-- BOOKING FORM -->
+
+<div class="card">
+
+    <h2>Guest Booking</h2>
+
+
+    <label>Customer Name</label>
+
+    <input
+        type="text"
+        id="name"
+        placeholder="Enter customer name"
+    >
+
+
+    <label>Mobile Number</label>
+
+    <input
+        type="tel"
+        id="phone"
+        placeholder="Enter WhatsApp number"
+    >
+
+
+    <label>Room Type</label>
+
+    <select id="roomType">
+
+        <option value="AC">
+            AC
+        </option>
+
+        <option value="Non-AC">
+            Non-AC
+        </option>
+
+    </select>
+
+
+    <label>Room No.</label>
+
+    <input
+        type="text"
+        id="roomNo"
+        placeholder="Enter room number"
+    >
+
+
+    <label>Room Rent (₹)</label>
+
+    <input
+        type="number"
+        id="roomRent"
+        placeholder="Enter room rent"
+        min="0"
+    >
+
+
+    <label>Number of Rooms</label>
+
+    <input
+        type="number"
+        id="rooms"
+        value="1"
+        min="1"
+    >
+
+
+    <label>Check-in Date</label>
+
+    <input
+        type="date"
+        id="checkinDate"
+    >
+
+
+    <label>Check-in Time</label>
+
+    <div class="time-row">
+
+        <select id="checkinHour">
+
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+
+        </select>
+
+
+        <select id="checkinMinute">
+
+            <option value="00">00</option>
+            <option value="05">05</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+
+        </select>
+
+
+        <select id="checkinAmPm">
+
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+
+        </select>
+
+    </div>
+
+
+    <label>Check-out Date</label>
+
+    <input
+        type="date"
+        id="checkoutDate"
+    >
+
+
+    <label>Check-out Time</label>
+
+    <div class="time-row">
+
+        <select id="checkoutHour">
+
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+
+        </select>
+
+
+        <select id="checkoutMinute">
+
+            <option value="00">00</option>
+            <option value="05">05</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+
+        </select>
+
+
+        <select id="checkoutAmPm">
+
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+
+        </select>
+
+    </div>
+
+
+    <label>Amount Paid (₹)</label>
+
+    <input
+        type="number"
+        id="amountPaid"
+        placeholder="Enter amount paid"
+        min="0"
+    >
+
+
+    <label>Payment Mode</label>
+
+    <select id="paymentMode">
+
+        <option value="Cash">
+            Cash
+        </option>
+
+        <option value="UPI">
+            UPI
+        </option>
+
+    </select>
+
+
+    <button onclick="generateReceipt()">
+
+        Generate Receipt
+
+    </button>
+
+</div>
+
+
+
+<!-- RECEIPT -->
+
+<div class="receipt" id="receipt">
+
+
+    <h2>
+        🛕 SHIVALAY BHAKTA NIWAS
+    </h2>
+
+
+    <p style="text-align:center;">
+        Ghatshil Road, Tuljapur
+    </p>
+
+
+    <hr>
+
+
+    <p>
+        <strong>Receipt No:</strong>
+        <span id="receiptNo"></span>
+    </p>
+
+
+    <p>
+        <strong>Customer:</strong>
+        <span id="rName"></span>
+    </p>
+
+
+    <p>
+        <strong>Mobile:</strong>
+        <span id="rPhone"></span>
+    </p>
+
+
+    <p>
+        <strong>Room Type:</strong>
+        <span id="rRoomType"></span>
+    </p>
+
+
+    <p>
+        <strong>Room No.:</strong>
+        <span id="rRoomNo"></span>
+    </p>
+
+
+    <p>
+        <strong>Room Rent:</strong>
+        ₹<span id="rRoomRent"></span>
+    </p>
+
+
+    <p>
+        <strong>Number of Rooms:</strong>
+        <span id="rRooms"></span>
+    </p>
+
+
+    <p>
+        <strong>Check-in:</strong>
+        <span id="rCheckin"></span>
+    </p>
+
+
+    <p>
+        <strong>Check-out:</strong>
+        <span id="rCheckout"></span>
+    </p>
+
+
+    <p class="total">
+        Total Amount:
+        ₹<span id="rTotal"></span>
+    </p>
+
+
+    <p>
+        <strong>Amount Paid:</strong>
+        ₹<span id="rPaid"></span>
+    </p>
+
+
+    <p>
+        <strong>Payment Mode:</strong>
+        <span id="rPaymentMode"></span>
+    </p>
+
+
+    <button onclick="printReceipt()">
+        🖨️ Print / Save PDF
+    </button>
+
+
+    <button onclick="sendWhatsApp()">
+        📱 Send Receipt on WhatsApp
+    </button>
+
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+    © 2026 Shivalay Bhakta Niwas, Tuljapur
+
+</footer>
+
+
+
+<script>
+
+let receiptData = {};
+
+
+/* DATE FORMAT */
+
+function formatDate(dateString) {
+
+    const date =
+        new Date(dateString + "T00:00:00");
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* TIME */
+
+function getTime(hour, minute, ampm) {
+
+    return hour + ":" + minute + " " + ampm;
+
+}
+
+
+/* GENERATE RECEIPT */
+
+function generateReceipt() {
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const roomType =
+        document.getElementById("roomType").value;
+
+    const roomNo =
+        document.getElementById("roomNo").value.trim();
+
+    const roomRent =
+        Number(
+            document.getElementById("roomRent").value
+        );
+
+    const rooms =
+        Number(
+            document.getElementById("rooms").value
+        );
+
+    const checkinDate =
+        document.getElementById("checkinDate").value;
+
+    const checkoutDate =
+        document.getElementById("checkoutDate").value;
+
+
+    const checkinTime =
+        getTime(
+
+            document.getElementById(
+                "checkinHour"
+            ).value,
+
+            document.getElementById(
+                "checkinMinute"
+            ).value,
+
+            document.getElementById(
+                "checkinAmPm"
+            ).value
+
+        );
+
+
+    const checkoutTime =
+        getTime(
+
+            document.getElementById(
+                "checkoutHour"
+            ).value,
+
+            document.getElementById(
+                "checkoutMinute"
+            ).value,
+
+            document.getElementById(
+                "checkoutAmPm"
+            ).value
+
+        );
+
+
+    const amountPaid =
+        Number(
+            document.getElementById(
+                "amountPaid"
+            ).value
+        ) || 0;
+
+
+    const paymentMode =
+        document.getElementById(
+            "paymentMode"
+        ).value;
+
+
+    /* VALIDATION */
+
+    if (
+        !name ||
+        !phone ||
+        !roomNo ||
+        !roomRent ||
+        !rooms ||
+        !checkinDate ||
+        !checkoutDate
+    ) {
+
+        alert(
+            "Please fill all booking details."
+        );
+
+        return;
+    }
+
+
+    /* TOTAL */
+
+    const total =
+        roomRent * rooms;
+
+
+    /* PAYMENT CHECK */
+
+    if (amountPaid > total) {
+
+        alert(
+            "Amount paid cannot be greater than total amount."
+        );
+
+        return;
+    }
+
+
+    /* RECEIPT NUMBER */
+
+    const receiptNo =
+        "SB" +
+        Date.now()
+            .toString()
+            .slice(-6);
+
+
+    /* DISPLAY */
+
+    document.getElementById(
+        "receiptNo"
+    ).innerText =
+        receiptNo;
+
+
+    document.getElementById(
+        "rName"
+    ).innerText =
+        name;
+
+
+    document.getElementById(
+        "rPhone"
+    ).innerText =
+        phone;
+
+
+    document.getElementById(
+        "rRoomType"
+    ).innerText =
+        roomType;
+
+
+    document.getElementById(
+        "rRoomNo"
+    ).innerText =
+        roomNo;
+
+
+    document.getElementById(
+        "rRoomRent"
+    ).innerText =
+        roomRent;
+
+
+    document.getElementById(
+        "rRooms"
+    ).innerText =
+        rooms;
+
+
+    document.getElementById(
+        "rCheckin"
+    ).innerText =
+
+        formatDate(checkinDate) +
+        " - " +
+        checkinTime;
+
+
+    document.getElementById(
+        "rCheckout"
+    ).innerText =
+
+        formatDate(checkoutDate) +
+        " - " +
+        checkoutTime;
+
+
+    document.getElementById(
+        "rTotal"
+    ).innerText =
+        total;
+
+
+    document.getElementById(
+        "rPaid"
+    ).innerText =
+        amountPaid;
+
+
+    document.getElementById(
+        "rPaymentMode"
+    ).innerText =
+        paymentMode;
+
+
+    /* WHATSAPP DATA */
+
+    receiptData = {
+
+        receiptNo: receiptNo,
+
+        name: name,
+
+        phone: phone,
+
+        roomType: roomType,
+
+        roomNo: roomNo,
+
+        roomRent: roomRent,
+
+        rooms: rooms,
+
+        checkin:
+            formatDate(checkinDate) +
+            " - " +
+            checkinTime,
+
+        checkout:
+            formatDate(checkoutDate) +
+            " - " +
+            checkoutTime,
+
+        total: total,
+
+        amountPaid: amountPaid,
+
+        paymentMode: paymentMode
+
+    };
+
+
+    /* SHOW RECEIPT */
+
+    document.getElementById(
+        "receipt"
+    ).style.display =
+        "block";
+
+
+    /* SCROLL */
+
+    window.scrollTo({
+
+        top:
+            document.body.scrollHeight,
+
+        behavior:
+            "smooth"
+
+    });
+
+}
+
+
+/* PRINT */
+
+function printReceipt() {
+
+    window.print();
+
+}
+
+
+/* WHATSAPP */
+
+function sendWhatsApp() {
+
+    if (!receiptData.phone) {
+
+        alert(
+            "Customer WhatsApp number is missing."
+        );
+
+        return;
+    }
+
+
+    let phone =
+        receiptData.phone
+            .replace(/\D/g, "");
+
+
+    if (phone.length === 10) {
+
+        phone =
+            "91" + phone;
+
+    }
+
+
+    const message =
+
+`🛕 SHIVALAY BHAKTA NIWAS
+
+Booking Confirmation
+
+Receipt No: ${receiptData.receiptNo}
+
+Customer: ${receiptData.name}
+
+Mobile: ${receiptData.phone}
+
+Room Type: ${receiptData.roomType}
+
+Room No.: ${receiptData.roomNo}
+
+Room Rent: ₹${receiptData.roomRent}
+
+Number of Rooms: ${receiptData.rooms}
+
+Check-in: ${receiptData.checkin}
+
+Check-out: ${receiptData.checkout}
+
+Total Amount: ₹${receiptData.total}
+
+Amount Paid: ₹${receiptData.amountPaid}
+
+Payment Mode: ${receiptData.paymentMode}
+
+Thank you for choosing
+Shivalay Bhakta Niwas, Tuljapur 🙏`;
+
+
+    const url =
+
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
