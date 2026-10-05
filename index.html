@@ -22,7 +22,7 @@ body {
 }
 
 /* =========================
-   LOGIN
+   LOGIN SCREEN
 ========================= */
 
 #loginScreen {
@@ -73,6 +73,10 @@ body {
     color: white;
     font-size: 17px;
     cursor: pointer;
+}
+
+.login-box button:hover {
+    background: #a52b1a;
 }
 
 .login-error {
@@ -214,12 +218,6 @@ button:hover {
     margin: 10px 0;
 }
 
-.receipt-contact {
-    text-align: center;
-    margin-top: 20px;
-    line-height: 1.7;
-}
-
 .total {
     font-size: 22px;
     font-weight: bold;
@@ -294,6 +292,7 @@ footer {
 
 <body>
 
+
 <!-- =========================
      LOGIN SCREEN
 ========================= -->
@@ -341,13 +340,7 @@ footer {
 
     <h1>🛕 Shivalay Bhakta Niwas</h1>
 
-    <p>
-        Ghatshil Road, Tuljapur - 413601
-    </p>
-
-    <p>
-        9112172324 | 9881412326 | 9850857008
-    </p>
+    <p>Ghatshil Road, Tuljapur</p>
 
 </header>
 
@@ -358,9 +351,7 @@ footer {
 
 <section class="hero">
 
-    <h2>
-        Welcome to Shivalay Bhakta Niwas
-    </h2>
+    <h2>Welcome to Shivalay Bhakta Niwas</h2>
 
     <p>
         Comfortable and peaceful stay near Aai Tulja Bhavani Temple
@@ -585,7 +576,9 @@ footer {
 
 
     <button onclick="generateReceipt()">
+
         Generate Receipt
+
     </button>
 
 </div>
@@ -596,16 +589,11 @@ footer {
 ========================= -->
 
 <div class="receipt" id="receipt">
-
     <div style="text-align:center; margin-bottom:10px;">
-
-        <img
-            src="tb.jpeg"
-            alt="Tulja Bhavani Mata"
-            style="width:110px; height:auto; display:inline-block;"
-        >
-
-    </div>
+    <img src="tb.jpeg"
+         alt="Tulja Bhavani Mata"
+         style="width:110px; height:auto; display:inline-block;">
+</div> 
 
 
     <h2>
@@ -613,18 +601,19 @@ footer {
     </h2>
 
 
-    <p style="text-align:center; line-height:1.6;">
-
+    <p style="text-align:center;">
         Ghatshil Road, Tuljapur - 413601
-
-        <br>
-
-        9112172324 | 9881412326 | 9850857008
-
+        Contact NO 9112172324 | 9881412326 | 9850857008 
     </p>
 
 
     <hr>
+
+
+    <p>
+        <strong>Receipt No:</strong>
+        <span id="receiptNo"></span>
+    </p>
 
 
     <p>
@@ -693,50 +682,21 @@ footer {
     </p>
 
 
-    <!-- =========================
-         THANK YOU
-    ========================= -->
+<p style="text-align:center; margin-top:20px;">
+    <strong>Booking Contact:</strong><br>
+    9112172324<br>
+    9881412326<br>
+    9850857008
+</p>
 
-    <div class="receipt-contact">
+<button onclick="printReceipt()">
+    🖨 Print / Save PDF
+</button>
 
-        <strong>
-            Thank you for choosing
-        </strong>
-
-        <br>
-
-        <strong>
-            Shivalay Bhakta Niwas, Tuljapur 🙏
-        </strong>
-
-        <br><br>
-
-        <strong>
-            Booking Contact:
-        </strong>
-
-        <br>
-
-        9112172324
-
-        <br>
-
-        9881412326
-
-        <br>
-
-        9850857008
-
-    </div>
-
-
-    <button onclick="printReceipt()">
-        🖨️ Print / Save PDF
-    </button>
 
 
     <button onclick="sendWhatsApp()">
-        📱 Send Receipt on WhatsApp
+        📱 Send Receipt on WhatsApp 
     </button>
 
 
@@ -754,6 +714,7 @@ footer {
 
 
 <script>
+
 
 /* =========================
    LOGIN
@@ -791,9 +752,7 @@ function login() {
 }
 
 
-/* =========================
-   ENTER KEY LOGIN
-========================= */
+/* ENTER KEY LOGIN */
 
 document.getElementById("loginPassword").addEventListener(
     "keydown",
@@ -881,33 +840,55 @@ function generateReceipt() {
 
     const checkinTime =
         getTime(
-            document.getElementById("checkinHour").value,
-            document.getElementById("checkinMinute").value,
-            document.getElementById("checkinAmPm").value
+
+            document.getElementById(
+                "checkinHour"
+            ).value,
+
+            document.getElementById(
+                "checkinMinute"
+            ).value,
+
+            document.getElementById(
+                "checkinAmPm"
+            ).value
+
         );
 
 
     const checkoutTime =
         getTime(
-            document.getElementById("checkoutHour").value,
-            document.getElementById("checkoutMinute").value,
-            document.getElementById("checkoutAmPm").value
+
+            document.getElementById(
+                "checkoutHour"
+            ).value,
+
+            document.getElementById(
+                "checkoutMinute"
+            ).value,
+
+            document.getElementById(
+                "checkoutAmPm"
+            ).value
+
         );
 
 
     const amountPaid =
         Number(
-            document.getElementById("amountPaid").value
+            document.getElementById(
+                "amountPaid"
+            ).value
         ) || 0;
 
 
     const paymentMode =
-        document.getElementById("paymentMode").value;
+        document.getElementById(
+            "paymentMode"
+        ).value;
 
 
-    /* =========================
-       VALIDATION
-    ========================= */
+    /* VALIDATION */
 
     if (
         !name ||
@@ -924,21 +905,16 @@ function generateReceipt() {
         );
 
         return;
-
     }
 
 
-    /* =========================
-       TOTAL
-    ========================= */
+    /* TOTAL */
 
     const total =
         roomRent * rooms;
 
 
-    /* =========================
-       PAYMENT CHECK
-    ========================= */
+    /* PAYMENT CHECK */
 
     if (amountPaid > total) {
 
@@ -947,13 +923,8 @@ function generateReceipt() {
         );
 
         return;
+    } 
 
-    }
-
-
-    /* =========================
-       DISPLAY RECEIPT
-    ========================= */
 
     document.getElementById(
         "rName"
@@ -994,6 +965,7 @@ function generateReceipt() {
     document.getElementById(
         "rCheckin"
     ).innerText =
+
         formatDate(checkinDate) +
         " - " +
         checkinTime;
@@ -1002,6 +974,7 @@ function generateReceipt() {
     document.getElementById(
         "rCheckout"
     ).innerText =
+
         formatDate(checkoutDate) +
         " - " +
         checkoutTime;
@@ -1025,11 +998,11 @@ function generateReceipt() {
         paymentMode;
 
 
-    /* =========================
-       WHATSAPP DATA
-    ========================= */
+    /* WHATSAPP DATA */
 
     receiptData = {
+
+        receiptNo: receiptNo,
 
         name: name,
 
@@ -1062,9 +1035,7 @@ function generateReceipt() {
     };
 
 
-    /* =========================
-       SHOW RECEIPT
-    ========================= */
+    /* SHOW RECEIPT */
 
     document.getElementById(
         "receipt"
@@ -1072,9 +1043,7 @@ function generateReceipt() {
         "block";
 
 
-    /* =========================
-       SCROLL TO RECEIPT
-    ========================= */
+    /* SCROLL */
 
     window.scrollTo({
 
@@ -1113,7 +1082,6 @@ function sendWhatsApp() {
         );
 
         return;
-
     }
 
 
@@ -1131,19 +1099,10 @@ function sendWhatsApp() {
 
 
     const message =
+
 `🛕 SHIVALAY BHAKTA NIWAS
 
 Booking Confirmation
-
-Shivalay Bhakta Niwas, Tuljapur
-
-Address:
-Ghatshil Road, Tuljapur - 413601
-
-Booking Contact:
-9112172324
-9881412326
-9850857008
 
 Customer: ${receiptData.name}
 
@@ -1169,9 +1128,14 @@ Payment Mode: ${receiptData.paymentMode}
 
 Thank you for choosing
 Shivalay Bhakta Niwas, Tuljapur 🙏`;
+Booking contact 
+    9112172324
+    9881412326
+    9850857008
 
 
     const url =
+
         "https://wa.me/" +
         phone +
         "?text=" +
